@@ -11,7 +11,11 @@ Solution: Theo đề ta có:
 Solved:
 <ul>
   <li>
-    <ol>asd</ol>
+    Sử dụng Burpsuite để bắt request gửi ảnh, và response render ảnh:<br>
+    <ul>
+      <li><image src="./"></li>
+      <li></li>
+    </ul>
   </li>
   <li></li>
   <li></li>
