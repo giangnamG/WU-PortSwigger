@@ -40,3 +40,21 @@ Solution:
 </ul>
 
 Câu 2: <a href="https://portswigger.net/web-security/file-upload/lab-file-upload-web-shell-upload-via-content-type-restriction-bypass">Web shell upload via Content-Type restriction bypass</a>
+
+
+Problem: Theo đề ta có: 
+<ul>
+  <li>Có thể khai thác giống như câu1 để tìm được flag, nhưng ở câu này vẫn là vấn đề đó, ta sẽ thử 1 dạng payload khác.</li>
+  <li>Flag sẽ nằm trong thư mục: <i>/home/carlos/secret</i></li>
+  <li>Account: wiener:peter</li>
+</ul>
+
+Solution:
+
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
