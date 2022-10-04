@@ -42,7 +42,7 @@ Solution:
 Câu 2: <a href="https://portswigger.net/web-security/file-upload/lab-file-upload-web-shell-upload-via-content-type-restriction-bypass">Web shell upload via Content-Type restriction bypass</a>
 
 
-Problem: Theo đề ta có: 
+Problem: Theo đề: 
 <ul>
   <li>Có thể khai thác giống như câu1 để tìm được flag. </li>
   <li>Hoặc dùng  payload <i>system($_GET['cmd'])</i> dùng cat để đọc file</li>
@@ -54,6 +54,40 @@ Solution:
 
 <ul>
   Làm y hệt câu 1, ta có kết quả
-  <li><image src="./resultCau2.png"></li>s
+  <li><image src="./resultCau2.png"></li>
 </ul>
 
+Câu 3: <a href="https://portswigger.net/web-security/file-upload/lab-file-upload-web-shell-upload-via-path-traversal">Web shell upload via path traversal</a>
+
+
+Problem: 
+<ul>
+  <li>Quan sát response trả ảnh, ta thấy thư mục chứa file tải lên đã nằm trong 1 thư mục <i>files</i>, có nghĩa file tải lên cách thư mục gốc 1 cấp</li>
+  <li>Sử dụng Path Traversal, để đi qua thư mục files</li>
+  <li>Thứ tự các bước như các câu trên</li>
+  <li><image src="./reqCau3.png"></li>
+</ul>
+
+Solution:
+
+<ul>
+  <li><image src="./sendRqCau3.png">Đưa 2 request vào Repeater</image></li>
+  <li>
+    Với payload của request POST:
+    <ul>
+      <li><image src="./payloadPostCau3.png"></li>
+      <li>Nội dung payload: sử dụng hàm đọc nội dung file</li>
+      <li>Tên file gửi đi: sử dụng "../" để vượt cấp thư mục files, dấu "/" được encode url trước khi gửi</li>
+      <li>Sau đó nhần send, và tiếp tục đến với Response GET</li>
+    </ul>
+  </li>
+  <li>
+    Với payload của Response GET:
+    <ul>
+      <li>Đổi tên file thành:</li>
+      <li><image src="./payloadGetcau3.png"></li>
+      <li>Sau đó nhấn send, ta nhận được kết quả:</li>
+      <li><image src="./resultCau3.png"></li>
+    </ul>
+  </li>
+</ul>
