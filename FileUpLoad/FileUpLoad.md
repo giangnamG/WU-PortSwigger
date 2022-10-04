@@ -1,6 +1,6 @@
 Câu 1: <a href="https://portswigger.net/web-security/file-upload/lab-file-upload-remote-code-execution-via-web-shell-upload">Remote code execution via web shell upload</a>
 
-Problem: Theo đề ta có: 
+Problem: 
 <ul>
   <li>Chức năng up load ảnh không thực hiện bất kỳ 1 xác thực nào</li>
   <li>Vậy ta có thể upload các file thực thi như PHP</li>
@@ -42,7 +42,7 @@ Solution:
 Câu 2: <a href="https://portswigger.net/web-security/file-upload/lab-file-upload-web-shell-upload-via-content-type-restriction-bypass">Web shell upload via Content-Type restriction bypass</a>
 
 
-Problem: Theo đề: 
+Problem: 
 <ul>
   <li>Có thể khai thác giống như câu1 để tìm được flag. </li>
   <li>Hoặc dùng  payload <i>system($_GET['cmd'])</i> dùng cat để đọc file</li>
@@ -90,4 +90,25 @@ Solution:
       <li><image src="./resultCau3.png"></li>
     </ul>
   </li>
+</ul>
+
+
+Câu 4: <a href="https://portswigger.net/web-security/file-path-traversal/lab-simple">File path traversal, simple case</a>
+
+
+Problem: 
+<ul>
+  <li>Chỉ cần thực thi được file /etc/passwd là solve lab</li>
+  <li>Chọn vào 1 bức ảnh, vì đó là Request yêu cầu server tìm và hiển thị bức ảnh đó</li>
+  <li>Truy vấn có đối số là filename</li>
+</ul>
+
+Solution:
+
+<ul>
+  <li>Đưa Request chọn ảnh vào Repeater</li>
+    <ul><li><image src="./Cau4_1.png"></li></ul>
+  <li>Tạo truy vấn có đối số là filename giá trị sau: <i>GET /image?filename=../../../../../etc/passwd</i> </li>
+  <li>Sau đó nhấn send, hoàn thành lab</li>
+  <li><image src="./Cau4_2.png"></li>
 </ul>
