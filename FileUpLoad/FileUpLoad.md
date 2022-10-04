@@ -44,7 +44,8 @@ Câu 2: <a href="https://portswigger.net/web-security/file-upload/lab-file-uploa
 
 Problem: Theo đề ta có: 
 <ul>
-  <li>Có thể khai thác giống như câu1 để tìm được flag, nhưng ở câu này vẫn là vấn đề đó, ta sẽ thử 1 dạng payload khác.</li>
+  <li>Có thể khai thác giống như câu1 để tìm được flag. </li>
+  <li>Hoặc dùng  payload <i>system($_GET['cmd'])</i> dùng cat để đọc file</li>
   <li>Flag sẽ nằm trong thư mục: <i>/home/carlos/secret</i></li>
   <li>Account: wiener:peter</li>
 </ul>
@@ -52,9 +53,7 @@ Problem: Theo đề ta có:
 Solution:
 
 <ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  Làm y hệt câu 1, ta có kết quả
+  <li><image src="./resultCau2.png"></li>s
 </ul>
 
