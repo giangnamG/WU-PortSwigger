@@ -134,7 +134,7 @@ Solution:
 </ul>
 
 
-Câu 6: <a href="https://portswigger.net/web-security/file-path-traversal/lab-sequences-stripped-non-recursively"></a>
+Câu 6: <a href="https://portswigger.net/web-security/file-path-traversal/lab-sequences-stripped-non-recursively">File path traversal, traversal sequences stripped non-recursively</a>
 
 Problem:
 
@@ -150,7 +150,7 @@ Solution:
   <ul><li><image src="./images/Cau6_1.png"></li></ul>
   <li>Sửa tham số của filename có giá trị:....//....//....//etc/passwd</li>
   <li>Sau đó ấn send, thu được kết quả:</li>
-  <ul><li><image src="./images/result_cau6.png.png"></li></ul>
+  <ul><li><image src="./images/result_cau6.png"></li></ul>
 </ul>
 
 
@@ -182,3 +182,57 @@ Solution:
 
 Câu 8: <a href="https://portswigger.net/web-security/file-path-traversal/lab-validate-start-of-path">File path traversal, validation of start of path</a>
 
+Solution:
+
+<ul>
+  <li>Chặn yêu cầu hiện ảnh và đưa vào Repeater</li>
+  <ul><li><image src="./images/Cau8_1.png"></li></ul>
+  <li>filename=/var/www/images/../../../etc/passwd</li>
+  <ul><li><image src="./images/resultCau8.png"></li></ul>
+</ul>
+
+Câu 9: <a href="https://portswigger.net/web-security/file-path-traversal/lab-validate-file-extension-null-byte-bypass">File path traversal, validation of file extension with null byte bypass</a>
+
+Problem: 
+
+<ul>
+  <li>Nếu ứng dụng yêu cầu tên tệp do người dùng cung cấp phải kết thúc bằng phần mở rộng tệp dự kiến, chẳng hạn như .png, thì có thể sử dụng byte rỗng(%00.*) để kết thúc hiệu quả đường dẫn tệp trước phần mở rộng được yêu cầu</li>
+</ul>
+
+Solution:
+
+<ul>
+  <li>Chặn yêu cầu hiện ảnh và đưa vào Repeater</li>
+  <ul><li><image src="./images/Cau9_1.png"></li></ul>
+   <li>filename=/var/www/images/../../../etc/passwd</li>
+  <ul><li><image src="./images/resultCau9.png"></li></ul>
+</ul>
+
+Câu 10: <a href="https://portswigger.net/web-security/file-upload/lab-file-upload-web-shell-upload-via-extension-blacklist-bypass">Web shell upload via extension blacklist bypass</a>
+
+Problem: 
+
+<ul>
+  <li>Một số phần mở rộng tệp nhất định được đưa vào danh sách đen, nhưng biện pháp bảo vệ này có thể bị bỏ qua do một lỗ hổng cơ bản trong cấu hình của danh sách đen này.</li>
+  <li>Nội dung của tệp / home / carlos / secret.</li>
+</ul>
+
+Solution:
+
+<ul>
+  <li>Trước tiên gửi payload là file php với nội dung sau:</li>
+  <ul>
+    <li><image src="./images/cau10_1.png"></li>
+    <li>Trong response báo 404 => có thể file chưa được upload do có blacklist</li>
+    <ul><li><image src="./images/Cau10_2.png"></li></ul>
+  </ul>
+  <li>Tiến hành thêm 1 đuôi của file thực thi php bằng cách cấu hình nó trong file .htaccess, sẽ được ghi đè lên file cũ.</li>
+  <ul>
+    Cấu hình .htaccess
+    <li><image src="./images/Cau10_3.png">Sau đó nhấn send</li>
+  </ul>
+  <li>Quay lại khai thác với payload cũ, nhưng đổi đuôi file là .l33t</li>
+  <ul><li><image src="./images/Cau10_4.png">Nhấn send</li></ul>
+  <li>Quay lại response cũng đổi đuôi file là .l33t, nhấn send thu được kết quả</li>
+  <ul><li><image src="./images/resultCau10.png">Nhấn send</li></ul>
+</ul>
