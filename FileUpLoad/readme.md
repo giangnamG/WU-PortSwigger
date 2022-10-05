@@ -229,10 +229,24 @@ Solution:
   <li>Tiến hành thêm 1 đuôi của file thực thi php bằng cách cấu hình nó trong file .htaccess, sẽ được ghi đè lên file cũ.</li>
   <ul>
     Cấu hình .htaccess
-    <li><image src="./images/Cau10_3.png">Sau đó nhấn send</li>
+    <li>Sau đó nhấn send<image src="./images/Cau10_3.png"></li>
   </ul>
   <li>Quay lại khai thác với payload cũ, nhưng đổi đuôi file là .l33t</li>
-  <ul><li><image src="./images/Cau10_4.png">Nhấn send</li></ul>
+  <ul><li>Nhấn send<image src="./images/Cau10_4.png"></li></ul>
   <li>Quay lại response cũng đổi đuôi file là .l33t, nhấn send thu được kết quả</li>
-  <ul><li><image src="./images/resultCau10.png">Nhấn send</li></ul>
+  <ul><li>Nhấn send<image src="./images/resultCau10.png"></li></ul>
+</ul>
+
+
+Câu 11: <a href="https://portswigger.net/web-security/file-upload/lab-file-upload-web-shell-upload-via-obfuscated-file-extension">Web shell upload via obfuscated file extension</a>
+
+
+Solution: 
+
+<ul>
+  <li>Vì server chỉ chấp nhận phần mở rộng tệp là jpg,png, nên ta sẽ thêm các bit rỗng vào phần mở rộng file vd như: file.php.%00.png</li>
+  <li>Với payload POST:</li>
+  <ul><li><image src="./images/Cau11_1.png"></li></ul>
+  <li>Với payload GET:</li>
+  <ul><li>Nhấn send thu được:<br><image src="./images/resultCau11.png"></li></ul>
 </ul>
