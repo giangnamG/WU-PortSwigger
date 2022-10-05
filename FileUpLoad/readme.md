@@ -112,3 +112,73 @@ Solution:
   <li>Sau đó nhấn send, hoàn thành lab</li>
   <li><image src="./images/Cau4_2.png"></li>
 </ul>
+
+
+Câu 5: <a href="https://portswigger.net/web-security/file-path-traversal/lab-absolute-path-bypass">File path traversal, traversal sequences blocked with absolute path bypass</a>
+
+Problem:
+
+<ul>
+  <li>Sử dụng Burp Suite để chặn và sửa đổi yêu cầu tìm nạp hình ảnh sản phẩm.</li>
+  <li>Sửa đổi tham số tên tệp, đặt cho nó giá trị /etc/passwd.</li>
+  <li>Quan sát rằng phản hồi có chứa nội dung của tệp /etc/passwd.</li>
+</ul>
+
+Solution:
+
+<ul>
+  <li>Bắt Request lúc render ảnh:</li>
+  <ul><li><image src="./images/Cau5_1.png"></li></ul>
+  <li>Sửa filename=/etc/passwd</li>
+  <ul><li><image src="./images/resultCau5.png"></li></ul>
+</ul>
+
+
+Câu 6: <a href="https://portswigger.net/web-security/file-path-traversal/lab-sequences-stripped-non-recursively"></a>
+
+Problem:
+
+<ul>
+  <li>Sửa đổi tham số tên tệp, cấp cho nó giá trị:....//....//....//etc/passwd</li>
+  <li>Quan sát rằng phản hồi có chứa nội dung của tệp /etc/passwd.</li>
+</ul>
+
+Solution:
+
+<ul>
+  <li>Chặn yêu cầu hiện ảnh và đưa vào Repeater</li>
+  <ul><li><image src="./images/Cau6_1.png"></li></ul>
+  <li>Sửa tham số của filename có giá trị:....//....//....//etc/passwd</li>
+  <li>Sau đó ấn send, thu được kết quả:</li>
+  <ul><li><image src="./images/result_cau6.png.png"></li></ul>
+</ul>
+
+
+Câu 7: <a href="https://portswigger.net/web-security/file-path-traversal/lab-superfluous-url-decode">File path traversal, traversal sequences stripped with superfluous URL-decode</a>
+
+ProblemL:
+<ul>
+  <li>Lab này decode url trước khi gửi đi, nên cần encode url trước khi gửi</li>
+  <li>Để giải quyết phòng thí nghiệm, cần truy xuất nội dung của tệp /etc/passwd.</li>
+</ul>
+
+Solution:
+
+<ul>
+  <li>Chặn yêu cầu hiện ảnh và đưa vào Repeater</li>
+  <ul><li><image src="./images/Cau7_1.png"></li></ul>
+  <li>encode url tham số của filename có giá trị:..%252f..%252f..%252fetc/passwd</li>
+    <ul>
+      <li>
+      ../../../etc/passwd <br>
+      => url: ..%2f..%2f..%2fetc/passwd
+      => encode url: ..%252f..%252f..%252fetc%2Fpasswd
+      </li>
+      <li><image src="./images/resultCau7.png"></li>
+    </ul>
+  <li>Nhấn Send và hoàn thành</li>
+</ul>
+
+
+Câu 8: <a href="https://portswigger.net/web-security/file-path-traversal/lab-validate-start-of-path">File path traversal, validation of start of path</a>
+
